@@ -193,9 +193,9 @@ hugo server -D
 
 ## 博客发布方案
 
-## github pages + Action
+#### github pages
 
-### jenkins 
+#### 腾讯云静态网站托管
 
 
 
