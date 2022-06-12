@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>迷而不茫</title>
+        <link>https://mi2m.cn/</link>
+        <description>Mi2M - 迷而不茫</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>menah3m@outlook.com (Menah3m)</managingEditor>
+            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 Dec 2021 21:57:40 &#43;0800</lastBuildDate>
+            <atom:link href="https://mi2m.cn/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>基于 Hugo 的个人博客体系不完全指南</title>
+    <link>https://mi2m.cn/hugo-based-blog-guide/</link>
+    <pubDate>Wed, 01 Dec 2021 21:57:40 &#43;0800</pubDate>
+    <author>Menah3m</author>
+    <guid>https://mi2m.cn/hugo-based-blog-guide/</guid>
+    <description><![CDATA[<blockquote>
+<p>什么是 hugo ？</p>
+<p>Hugo 是采用 Go 语言开发的一种开源网站搭建框架，具有速度快、灵活、可扩展性强的特点。</p>
+</blockquote>]]></description>
+</item>
+<item>
+    <title>基于 Grafana 和 Elasticsearch 对日志信息进行监控告警</title>
+    <link>https://mi2m.cn/es-grafana-based-log-alert/</link>
+    <pubDate>Mon, 01 Feb 2021 11:37:30 &#43;0800</pubDate>
+    <author>Menah3m</author>
+    <guid>https://mi2m.cn/es-grafana-based-log-alert/</guid>
+    <description><![CDATA[<blockquote>
+<p>在公司环境中，除了日志的存储和可视化需求外，我们常常需要对日志信息进行监控，关注某些报错信息，目前最常用的日志架构是 ELK ，即 Elasticsearch 、LogStash 和 Kibana 的组合，其中 LogStash 负责日志的采集和过滤，ElasticSearch 负责日志的存储，而 Kibana 则负责日志的可视化，而日志的告警则可以通过 Grafana 来实现。</p>
+</blockquote>]]></description>
+</item>
+</channel>
+</rss>
