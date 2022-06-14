@@ -209,9 +209,9 @@ class Theme {
                                 });
                                 results[uri] = {
                                     'uri': uri,
-                                    'title' : title,
-                                    'date' : matchData.date,
-                                    'context' : context,
+                                    'title': title,
+                                    'date': matchData.date,
+                                    'context': context,
                                 };
                             });
                             return Object.values(results).slice(0, maxResultLength);
@@ -221,7 +221,7 @@ class Theme {
                                 .then(response => response.json())
                                 .then(data => {
                                     const indexData = {};
-                                    this._index = lunr(function () {
+                                    this._index = lunr(function() {
                                         if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
                                         this.ref('objectID');
                                         this.field('title', { boost: 50 });
@@ -284,7 +284,8 @@ class Theme {
                             icon: '',
                             href: 'https://lunrjs.com/',
                         };
-                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;
+                    },
                 },
             });
             autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
@@ -301,7 +302,7 @@ class Theme {
             script.async = true;
             if (script.readyState) {
                 script.onreadystatechange = () => {
-                    if (script.readyState == 'loaded' || script.readyState == 'complete'){
+                    if (script.readyState == 'loaded' || script.readyState == 'complete') {
                         script.onreadystatechange = null;
                         initAutosearch();
                     }
@@ -464,8 +465,8 @@ class Theme {
                 for (let i = 0; i < $headerLinkElements.length - 1; i++) {
                     const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
                     const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                    if ((i == 0 && thisTop > INDEX_SPACING)
-                     || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                    if ((i == 0 && thisTop > INDEX_SPACING) ||
+                        (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                         activeTocIndex = i;
                         break;
                     }
@@ -492,7 +493,7 @@ class Theme {
         this._mermaidOnSwitchTheme = this._mermaidOnSwitchTheme || (() => {
             const $mermaidElements = document.getElementsByClassName('mermaid');
             if ($mermaidElements.length) {
-                mermaid.initialize({startOnLoad: false, theme: this.isDark ? 'dark' : 'neutral', securityLevel: 'loose'});
+                mermaid.initialize({ startOnLoad: false, theme: this.isDark ? 'dark' : 'neutral', securityLevel: 'loose' });
                 this.util.forEach($mermaidElements, $mermaid => {
                     mermaid.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
                         $mermaid.innerHTML = svgCode;
@@ -515,7 +516,7 @@ class Theme {
                 }
                 this._echartsArr = [];
                 this.util.forEach(document.getElementsByClassName('echarts'), $echarts => {
-                    const chart = echarts.init($echarts, this.isDark ? 'dark' : 'light', {renderer: 'svg'});
+                    const chart = echarts.init($echarts, this.isDark ? 'dark' : 'light', { renderer: 'svg' });
                     chart.setOption(JSON.parse(this.data[$echarts.id]));
                     this._echartsArr.push(chart);
                 });
@@ -593,6 +594,9 @@ class Theme {
                     const id = group[i];
                     const instance = new TypeIt(`#${id}`, {
                         strings: this.data[id],
+                        afterStep: function(instance) {
+                            instance.getElement().style.color = getRandomColor();
+                        },
                         speed: speed,
                         lifeLike: true,
                         cursorSpeed: cursorSpeed,
@@ -695,7 +699,8 @@ class Theme {
             $viewComments.style.display = 'block';
         }
         const $fixedButtons = document.getElementById('fixed-buttons');
-        const ACCURACY = 20, MINIMUM = 100;
+        const ACCURACY = 20,
+            MINIMUM = 100;
         window.addEventListener('scroll', () => {
             this.newScrollTop = this.util.getScrollTop();
             const scroll = this.newScrollTop - this.oldScrollTop;
@@ -704,7 +709,7 @@ class Theme {
                 if (scroll > ACCURACY) {
                     $header.classList.remove('animate__fadeInDown');
                     this.util.animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
-                } else if (scroll < - ACCURACY) {
+                } else if (scroll < -ACCURACY) {
                     $header.classList.remove('animate__fadeOutUp');
                     this.util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
                 }
@@ -713,7 +718,7 @@ class Theme {
                 if (isMobile && scroll > ACCURACY) {
                     $fixedButtons.classList.remove('animate__fadeIn');
                     this.util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
-                } else if (!isMobile || scroll < - ACCURACY) {
+                } else if (!isMobile || scroll < -ACCURACY) {
                     $fixedButtons.style.display = 'block';
                     $fixedButtons.classList.remove('animate__fadeOut');
                     this.util.animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);

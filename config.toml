@@ -3,7 +3,7 @@ publishDir = "docs"
 
 # theme
 # 主题
-theme = "loveit"
+theme = "LoveIt"
 # themes directory
 # 主题目录
 themesDir = "./themes/"
