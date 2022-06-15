@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OSS - 标签 - 迷而不茫</title>
+        <link>https://mi2m.cn/tags/oss/</link>
+        <description>OSS - 标签 - 迷而不茫</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>menah3m@outlook.com (Menah3m)</managingEditor>
+            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 05 Feb 2022 11:37:48 &#43;0800</lastBuildDate><atom:link href="https://mi2m.cn/tags/oss/" rel="self" type="application/rss+xml" /><item>
+    <title>在 Typora 中基于阿里云 OSS &#43; PicGo 搭建图床 </title>
+    <link>https://mi2m.cn/image-hub-based-on-typora/</link>
+    <pubDate>Sat, 05 Feb 2022 11:37:48 &#43;0800</pubDate>
+    <author>Menah3m</author>
+    <guid>https://mi2m.cn/image-hub-based-on-typora/</guid>
+    <description><![CDATA[<br>
+<p>图床可以理解成是一个在互联网上专门用来存放图片的场所，每一张图片都可以通过 URL 被其他人使用</p>]]></description>
+</item>
+</channel>
+</rss>

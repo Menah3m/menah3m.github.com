@@ -3,7 +3,9 @@
 
 
 
-> 在公司环境中，除了日志的存储和可视化需求外，我们常常需要对日志信息进行监控，关注某些报错信息，目前最常用的日志架构是 ELK ，即 Elasticsearch 、LogStash 和 Kibana 的组合，其中 LogStash 负责日志的采集和过滤，ElasticSearch 负责日志的存储，而 Kibana 则负责日志的可视化，而日志的告警则可以通过 Grafana 来实现。
+<br>
+
+在公司环境中，除了日志的存储和可视化需求外，我们常常需要对日志信息进行监控，关注某些报错信息，目前最常用的日志架构是 ELK ，即 Elasticsearch 、LogStash 和 Kibana 的组合，其中 LogStash 负责日志的采集和过滤，ElasticSearch 负责日志的存储，而 Kibana 则负责日志的可视化，而日志的告警则可以通过 Grafana 来实现。
 
 <!--more-->
 

@@ -10,10 +10,9 @@
     <pubDate>Wed, 01 Dec 2021 21:57:40 &#43;0800</pubDate>
     <author>Menah3m</author>
     <guid>https://mi2m.cn/hugo-based-blog-guide/</guid>
-    <description><![CDATA[<blockquote>
+    <description><![CDATA[<br>
 <p>什么是 hugo ？</p>
-<p>Hugo 是采用 Go 语言开发的一种开源网站搭建框架，具有速度快、灵活、可扩展性强的特点。</p>
-</blockquote>]]></description>
+<p>Hugo 是采用 Go 语言开发的一种开源网站搭建框架，具有速度快、灵活、可扩展性强的特点。</p>]]></description>
 </item>
 </channel>
 </rss>
