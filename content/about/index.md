@@ -8,6 +8,7 @@ lightgallery: true
 
 math:
   enable: true
+
 ---
 
 
