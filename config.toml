@@ -954,9 +954,9 @@ enableEmoji = true
       [languages.zh-cn.params.social]
         
         GitHub = "https://github.com/Menah3m"
-        Instagram = "xxxx"
-        Twitter = "xxxx"
-        Reddit = "xxxx"
+        #Instagram = "xxxx"
+        #Twitter = "xxxx"
+        #Reddit = "xxxx"
         #Weibo = "xxxx"
         #Steam = "xxxx"
         #Zhihu = "xxxx"

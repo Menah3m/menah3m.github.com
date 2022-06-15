@@ -12,9 +12,9 @@ math:
 
 
 
-![Netlify](https://img.shields.io/netlify/66b030e8-2a54-40a2-ac44-7e502acc5cec)
+<br>
 
-<center>情人如若很好奇</center>
+[![Netlify](https://img.shields.io/netlify/66b030e8-2a54-40a2-ac44-7e502acc5cec)](netlify.com)[![Hugo](https://img.shields.io/badge/Hugo-0.92.2-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)[![theme](https://img.shields.io/badge/Theme-LoveIt-green)](https://github.com/dillonzq/LoveIt)
 
-<div align = "center" >要有被我吓怕的准备</div>
+<br>
 
