@@ -9,4 +9,5 @@
 
 <br>
 
+{{< music auto="https://music.163.com/#/my/m/music/playlist?id=322771932" >}}
 
