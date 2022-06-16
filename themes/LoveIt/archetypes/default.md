@@ -34,14 +34,16 @@ code:
   maxShownLines: 50
 math:
   enable: false
+
   # ...
 mapbox:
-  # ...
+  # ... 
 share:
   enable: true
   # ...
 comment:
   enable: true
+
   # ...
 library:
   css:
@@ -57,6 +59,9 @@ library:
 seo:
   images: []
   # ...
----
+  # ...
+
+
+
 
 <!--more-->
