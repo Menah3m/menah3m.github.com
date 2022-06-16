@@ -17,5 +17,6 @@
 
 {{< music "https://music.163.com/#/song?id=65954" >}}
 
-{{< music "https://y.qq.com/n/ryqq/songDetail/001mc13y4UPfIS" >}}
+{{< music tencent song 4907884 >}}
+
 
