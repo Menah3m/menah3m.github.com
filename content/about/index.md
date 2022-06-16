@@ -25,5 +25,5 @@ math:
 
 <br>
 
-{{< music "https://music.163.com/#/playlist?id=60198" >}}
+{{< music "https://music.163.com/#/song?id=65954" >}}
 
