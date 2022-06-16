@@ -9,7 +9,11 @@
 
 <br>
 
+{{< typeit tag=h4 >}}
+若你喜欢怪人，其实我很美...
+{{< /typeit >}}
 
+<br>
 
 {{< music "https://music.163.com/#/playlist?id=60198" >}}
 
