@@ -5,7 +5,6 @@
 
 简单记录下 Elasticsearch 的安装和配置。
 
-
 <!--more-->
 
 ## 获取安装包
@@ -21,7 +20,7 @@ https://www.elastic.co/cn/elasticsearch/
 
 **使用版本**
 
-==V8.2.2==
+V8.2.2
 
 ## Elasticsearch 的文件目录结构
 
@@ -82,13 +81,13 @@ https://www.elastic.co/cn/elasticsearch/
 
 4. 运行 `curl http://localhost:9200/` 
 
-<img src="https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573.png" alt="image-20220623113554573" style="zoom:50%;" align="left"/>
+![result](https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png)
 
 
 
 
 
-ES同时也支持使用 ==Docker== 启动
+ES同时也支持使用 `Docker` 启动
 
 ```shell
 docker run --name elasticsearch -d -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -e "discovery.type=single-node" -p 9200:9200 -p 9300:9300 elasticsearch:8.2.2
