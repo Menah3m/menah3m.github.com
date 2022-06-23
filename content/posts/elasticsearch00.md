@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "Elasticsearch 的安装和配置方法"
-date: 2022-6-01T11:37:20+08:00
+date: 2022-06-01T11:37:20+08:00
 lastmod: 2022-06-22T06:34:33+08:00
 draft: false
 author: "Menah3m"
