@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mi2m.cn\/elasticsearch00\/"
-        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Elasticsearch","wordcount":  433 ,
+        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Elasticsearch","wordcount":  533 ,
         "url": "https:\/\/mi2m.cn\/elasticsearch00\/","datePublished": "2022-06-22T06:34:33+08:00","dateModified": "2022-06-22T06:34:33+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -110,8 +110,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Elasticsearch 的安装和配置方法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Menah3m" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Menah3m</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/guide/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Guide</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 433 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/elasticsearch00/" class="leancloud_visitors" data-flag-title="Elasticsearch 的安装和配置方法">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 533 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/elasticsearch00/" class="leancloud_visitors" data-flag-title="Elasticsearch 的安装和配置方法">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -135,6 +135,7 @@
         <li><a href="#如果启动后访问时报错err_empty_response">如果启动后访问时报错：ERR_EMPTY_RESPONSE</a></li>
       </ul>
     </li>
+    <li><a href="#以多实例方式运行elasticsearch">以多实例方式运行Elasticsearch</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>简单记录下 Elasticsearch 的安装和配置。</p>
@@ -255,11 +256,37 @@ chmod <span class="m">770</span> elasticsearch-8.2.2/
 </ul>
 <h2 id="其他配置">其他配置</h2>
 <h3 id="如果需要外部能够访问则需要修改-networkhost">如果需要外部能够访问，则需要修改 network.host</h3>
-<p>config/elasticsearch.yml</p>
-<p>修改 network.host 字段内容为 <code>0.0.0.0</code> ，并去掉注释标记</p>
+<p>在 <code>config/elasticsearch.yml</code> 中修改 <strong>network.host</strong> 字段内容为 <code>0.0.0.0</code> ，并去掉注释标记</p>
 <h3 id="如果启动后访问时报错err_empty_response">如果启动后访问时报错：ERR_EMPTY_RESPONSE</h3>
 <p>这是因为启动后增添了一些认证配置信息</p>
-<p>需要将 xpack.security.enabled，xpack.security.enrollment.enabled 修改为 false 来关闭 ssl 认证</p></div><div class="post-footer" id="post-footer">
+<p>需要将 <strong>xpack.security.enabled</strong>，<strong>xpack.security.enrollment.enabled</strong> 修改为 <code>false</code> 来关闭 ssl 认证</p>
+<h2 id="以多实例方式运行elasticsearch">以多实例方式运行Elasticsearch</h2>
+<p>需要在 <code>config/elasticsearch.yml</code> 中设置 <strong>cluster.initial_master_nodes</strong> 字段值为 <code>myecs</code> （这里的 myecs 是第一个节点的名称）</p>
+<p>执行如下命令即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">bin/elasticsearch -E node.name<span class="o">=</span>myecs -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>myecs_data -d
+bin/elasticsearch -E node.name<span class="o">=</span>node1 -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>node1_data -d
+bin/elasticsearch -E node.name<span class="o">=</span>node2 -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>node2_data -d
+</code></pre></td></tr></table>
+</div>
+</div><p>关闭进程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ps -ef<span class="p">|</span>grep elasticsearch
+<span class="nb">kill</span> -9 <span class="o">[</span>pid<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

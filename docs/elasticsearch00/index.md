@@ -22,6 +22,8 @@ https://www.elastic.co/cn/elasticsearch/
 
 V8.2.2
 
+
+
 ## Elasticsearch 的文件目录结构
 
 - **bin**
@@ -113,9 +115,7 @@ config/jvm.options
 
 ### 如果需要外部能够访问，则需要修改 network.host
 
-config/elasticsearch.yml
-
-修改 network.host 字段内容为 `0.0.0.0` ，并去掉注释标记
+在 `config/elasticsearch.yml` 中修改 **network.host** 字段内容为 `0.0.0.0` ，并去掉注释标记
 
 
 
@@ -123,5 +123,31 @@ config/elasticsearch.yml
 
 这是因为启动后增添了一些认证配置信息
 
-需要将 xpack.security.enabled，xpack.security.enrollment.enabled 修改为 false 来关闭 ssl 认证
+需要将 **xpack.security.enabled**，**xpack.security.enrollment.enabled** 修改为 `false` 来关闭 ssl 认证
+
+
+
+## 以多实例方式运行Elasticsearch
+
+
+
+需要在 `config/elasticsearch.yml` 中设置 **cluster.initial_master_nodes** 字段值为 `myecs` （这里的 myecs 是第一个节点的名称）
+
+执行如下命令即可：
+
+```shell
+bin/elasticsearch -E node.name=myecs -E cluster.name=mycluster -E path.data=myecs_data -d
+bin/elasticsearch -E node.name=node1 -E cluster.name=mycluster -E path.data=node1_data -d
+bin/elasticsearch -E node.name=node2 -E cluster.name=mycluster -E path.data=node2_data -d
+```
+
+
+
+关闭进程：
+
+```shell
+ps -ef|grep elasticsearch
+kill -9 [pid]
+```
+
 
