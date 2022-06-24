@@ -2,16 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://mi2m.cn/cerebro/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://mi2m.cn/elasticsearch00/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://mi2m.cn/image-hub-based-on-typora/</loc><lastmod>2022-06-01T12:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://mi2m.cn/hugo-based-blog-guide/</loc><lastmod>2022-05-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://mi2m.cn/es-grafana-based-log-alert/</loc><lastmod>2022-06-01T16:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>https://mi2m.cn/categories/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://mi2m.cn/tags/elasticsearch/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://mi2m.cn/categories/guide/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://mi2m.cn/posts/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://mi2m.cn/tags/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://mi2m.cn/</loc><lastmod>2022-06-22T06:34:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/categories/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/tags/cerebro/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/tags/elasticsearch/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/categories/guide/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/posts/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/tags/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://mi2m.cn/</loc><lastmod>2022-06-24T10:36:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://mi2m.cn/tags/blog/</loc><lastmod>2022-06-01T12:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://mi2m.cn/tags/oss/</loc><lastmod>2022-06-01T12:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://mi2m.cn/tags/picgo/</loc><lastmod>2022-06-01T12:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>

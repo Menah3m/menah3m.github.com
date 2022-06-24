@@ -4,34 +4,34 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Elasticsearch 的安装和配置方法 - 迷而不茫</title><meta name="Description" content="简单记录下 Elasticsearch 的安装和配置"><meta property="og:title" content="Elasticsearch 的安装和配置方法" />
-<meta property="og:description" content="简单记录下 Elasticsearch 的安装和配置" />
+        <title>Cerebro 的安装 - 迷而不茫</title><meta name="Description" content="Mi2M - 迷而不茫"><meta property="og:title" content="Cerebro 的安装" />
+<meta property="og:description" content="cerebro 是一款开源的用于管理 Elasticsearch 的 Web 端管理工具。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mi2m.cn/elasticsearch00/" /><meta property="og:image" content="https://mi2m.cn/images/avatar.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-01T11:37:20+08:00" />
-<meta property="article:modified_time" content="2022-06-22T06:34:33+08:00" /><meta property="og:site_name" content="Mi2M" />
+<meta property="og:url" content="https://mi2m.cn/cerebro/" /><meta property="og:image" content="https://mi2m.cn/images/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-24T10:36:26+08:00" />
+<meta property="article:modified_time" content="2022-06-24T10:36:26+08:00" /><meta property="og:site_name" content="Mi2M" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://mi2m.cn/images/avatar.png"/>
 
-<meta name="twitter:title" content="Elasticsearch 的安装和配置方法"/>
-<meta name="twitter:description" content="简单记录下 Elasticsearch 的安装和配置"/>
+<meta name="twitter:title" content="Cerebro 的安装"/>
+<meta name="twitter:description" content="cerebro 是一款开源的用于管理 Elasticsearch 的 Web 端管理工具。"/>
 <meta name="application-name" content="Mi2M">
 <meta name="apple-mobile-web-app-title" content="Mi2M"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mi2m.cn/elasticsearch00/" /><link rel="prev" href="https://mi2m.cn/image-hub-based-on-typora/" /><link rel="next" href="https://mi2m.cn/cerebro/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mi2m.cn/cerebro/" /><link rel="prev" href="https://mi2m.cn/elasticsearch00/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Elasticsearch 的安装和配置方法",
+        "headline": "Cerebro 的安装",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/mi2m.cn\/elasticsearch00\/"
-        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Elasticsearch","wordcount":  533 ,
-        "url": "https:\/\/mi2m.cn\/elasticsearch00\/","datePublished": "2022-06-01T11:37:20+08:00","dateModified": "2022-06-22T06:34:33+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/mi2m.cn\/cerebro\/"
+        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "cerebro, Elasticsearch","wordcount":  122 ,
+        "url": "https:\/\/mi2m.cn\/cerebro\/","datePublished": "2022-06-24T10:36:26+08:00","dateModified": "2022-06-24T10:36:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -41,7 +41,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Menah3m"
-            },"description": "简单记录下 Elasticsearch 的安装和配置"
+            },"description": ""
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -108,10 +108,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Elasticsearch 的安装和配置方法</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Cerebro 的安装</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Menah3m" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Menah3m</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/guide/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Guide</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-01">2022-06-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 533 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/elasticsearch00/" class="leancloud_visitors" data-flag-title="Elasticsearch 的安装和配置方法">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-24">2022-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 122 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/cerebro/" class="leancloud_visitors" data-flag-title="Cerebro 的安装">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -121,196 +121,51 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#获取安装包">获取安装包</a></li>
-    <li><a href="#elasticsearch-的文件目录结构">Elasticsearch 的文件目录结构</a></li>
-    <li><a href="#运行-elasticsearch">运行 Elasticsearch</a></li>
-    <li><a href="#jvm配置">JVM配置</a>
-      <ul>
-        <li><a href="#修改-jvm">修改 JVM</a></li>
-      </ul>
-    </li>
-    <li><a href="#其他配置">其他配置</a>
-      <ul>
-        <li><a href="#如果需要外部能够访问则需要修改-networkhost">如果需要外部能够访问，则需要修改 network.host</a></li>
-        <li><a href="#如果启动后访问时报错err_empty_response">如果启动后访问时报错：ERR_EMPTY_RESPONSE</a></li>
-      </ul>
-    </li>
-    <li><a href="#以多实例方式运行elasticsearch">以多实例方式运行Elasticsearch</a></li>
+    <li><a href="#工具介绍">工具介绍</a></li>
+    <li><a href="#安装">安装</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>简单记录下 Elasticsearch 的安装和配置。</p>
-<h2 id="获取安装包">获取安装包</h2>
-<p><strong>官网地址</strong></p>
-<p><a href="https://www.elastic.co/cn/elasticsearch/" target="_blank" rel="noopener noreffer">https://www.elastic.co/cn/elasticsearch/</a></p>
-<p><strong>下载方式</strong></p>
-<ul>
-<li>软件包下载</li>
-<li>包管理器下载</li>
-</ul>
-<p><strong>使用版本</strong></p>
-<p>V8.2.2</p>
-<h2 id="elasticsearch-的文件目录结构">Elasticsearch 的文件目录结构</h2>
+            </div><div class="content" id="content"><p>cerebro 是一款开源的用于管理 Elasticsearch 的 Web 端管理工具。</p>
+<h2 id="工具介绍">工具介绍</h2>
+<p><strong>项目地址</strong></p>
+<p><code>https://github.com/lmenezes/cerebro</code></p>
+<p><strong>项目依赖</strong></p>
+<p>Java 11 及以上版本</p>
+<h2 id="安装">安装</h2>
+<p><strong>安装方式</strong></p>
 <ul>
 <li>
-<p><strong>bin</strong></p>
-<p>脚本文件，包括启动ES、安装插件、运行统计数据等</p>
+<p>软件包安装</p>
+<p>下载地址：<code>https://github.com/lmenezes/cerebro/releases</code></p>
 </li>
 <li>
-<p><strong>config</strong></p>
-<ul>
-<li>
-<p>elasticsearch.yml</p>
-<p>集群配置文件：user、role based等相关配置</p>
+<p>Docker（推荐）</p>
+<p>执行命令 <code>docker run --name cerebro -d -p 9000:9000 lmenezes/cerebro:0.8.4</code></p>
 </li>
-</ul>
-</li>
-<li>
-<p>JDK</p>
-<p>Java运行环境</p>
-</li>
-<li>
-<p><strong>data</strong></p>
-<ul>
-<li>
-<p>path.data</p>
-<p>数据文件</p>
-</li>
-</ul>
-</li>
-<li>
-<p>lib</p>
-<p>Java类库</p>
-</li>
-<li>
-<p><strong>logs</strong></p>
-<ul>
-<li>
-<p>path.log</p>
-<p>日志文件</p>
-</li>
-</ul>
-</li>
-<li>
-<p>modules</p>
-<p>包含所有ES模块</p>
-</li>
-<li>
-<p>plugins</p>
-<p>包含所有已安装插件</p>
-</li>
-</ul>
-<h2 id="运行-elasticsearch">运行 Elasticsearch</h2>
-<ol>
-<li>
-<p>下载并解压缩 Elasticsearch</p>
-</li>
-<li>
-<p>创建 es 用户并赋予权限（ES 默认不能使用 root 用户启动）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">useradd es
-passwd es
-chown -R es:es elasticsearch-8.2.2/
-chmod <span class="m">770</span> elasticsearch-8.2.2/
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>使用 es 用户运行 <code>bin/elasticsearch</code></p>
-</li>
-<li>
-<p>运行 <code>curl http://localhost:9200/</code></p>
-</li>
-</ol>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png"
-        data-srcset="https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png, https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png 1.5x, https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png 2x"
-        data-sizes="auto"
-        alt="https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/image-20220623113554573-20220623130823304.png"
-        title="result" /></p>
-<p>ES同时也支持使用 <code>Docker</code> 启动</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">docker run --name elasticsearch -d -e <span class="nv">ES_JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-Xms512m -Xmx512m&#34;</span> -e <span class="s2">&#34;discovery.type=single-node&#34;</span> -p 9200:9200 -p 9300:9300 elasticsearch:8.2.2
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="jvm配置">JVM配置</h2>
-<h3 id="修改-jvm">修改 JVM</h3>
-<p>config/jvm.options</p>
-<p><strong>建议</strong></p>
-<ul>
-<li>Xms 和 Xmx 设置成一样</li>
-<li>Xmx 不要超过机器内存的50%</li>
-<li>不要超过 30GB</li>
-</ul>
-<h2 id="其他配置">其他配置</h2>
-<h3 id="如果需要外部能够访问则需要修改-networkhost">如果需要外部能够访问，则需要修改 network.host</h3>
-<p>在 <code>config/elasticsearch.yml</code> 中修改 <strong>network.host</strong> 字段内容为 <code>0.0.0.0</code> ，并去掉注释标记</p>
-<h3 id="如果启动后访问时报错err_empty_response">如果启动后访问时报错：ERR_EMPTY_RESPONSE</h3>
-<p>这是因为启动后增添了一些认证配置信息</p>
-<p>需要将 <strong>xpack.security.enabled</strong>，<strong>xpack.security.enrollment.enabled</strong> 修改为 <code>false</code> 来关闭 ssl 认证</p>
-<h2 id="以多实例方式运行elasticsearch">以多实例方式运行Elasticsearch</h2>
-<p>需要在 <code>config/elasticsearch.yml</code> 中设置 <strong>cluster.initial_master_nodes</strong> 字段值为 <code>myecs</code> （这里的 myecs 是第一个节点的名称）</p>
-<p>执行如下命令即可：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">bin/elasticsearch -E node.name<span class="o">=</span>myecs -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>myecs_data -d
-bin/elasticsearch -E node.name<span class="o">=</span>node1 -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>node1_data -d
-bin/elasticsearch -E node.name<span class="o">=</span>node2 -E cluster.name<span class="o">=</span>mycluster -E path.data<span class="o">=</span>node2_data -d
-</code></pre></td></tr></table>
-</div>
-</div><p>关闭进程：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ps -ef<span class="p">|</span>grep elasticsearch
-<span class="nb">kill</span> -9 <span class="o">[</span>pid<span class="o">]</span>
-</code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-06-22</span>
+                <span>更新于 2022-06-24</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/elasticsearch00/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/cerebro/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mi2m.cn/elasticsearch00/" data-title="Elasticsearch 的安装和配置方法" data-hashtags="Elasticsearch"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://mi2m.cn/elasticsearch00/" data-hashtag="Elasticsearch"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://mi2m.cn/elasticsearch00/" data-title="Elasticsearch 的安装和配置方法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mi2m.cn/elasticsearch00/" data-title="Elasticsearch 的安装和配置方法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mi2m.cn/elasticsearch00/" data-title="Elasticsearch 的安装和配置方法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mi2m.cn/cerebro/" data-title="Cerebro 的安装" data-hashtags="cerebro,Elasticsearch"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://mi2m.cn/cerebro/" data-hashtag="cerebro"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://mi2m.cn/cerebro/" data-title="Cerebro 的安装"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mi2m.cn/cerebro/" data-title="Cerebro 的安装"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mi2m.cn/cerebro/" data-title="Cerebro 的安装"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/elasticsearch/">Elasticsearch</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/cerebro/">cerebro</a>,&nbsp;<a href="/tags/elasticsearch/">Elasticsearch</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/image-hub-based-on-typora/" class="prev" rel="prev" title="在 Typora 中基于阿里云 OSS &#43; PicGo 搭建图床 "><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>在 Typora 中基于阿里云 OSS + PicGo 搭建图床 </a>
-            <a href="/cerebro/" class="next" rel="next" title="Cerebro 的安装">Cerebro 的安装<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/elasticsearch00/" class="prev" rel="prev" title="Elasticsearch 的安装和配置方法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Elasticsearch 的安装和配置方法</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

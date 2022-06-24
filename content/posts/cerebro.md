@@ -1,9 +1,11 @@
 ---
+
+weight: 1
 title: "Cerebro 的安装"
 subtitle: ""
 date: 2022-06-24T10:36:26+08:00
 lastmod: 2022-06-24T10:36:26+08:00
-draft: true
+draft: false
 author: ""
 authorLink: ""
 description: ""
