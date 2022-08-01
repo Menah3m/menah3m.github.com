@@ -1,9 +1,8 @@
 ---
-weight: 1
-title: "{{ replace .TranslationBaseName "-" " " | title }}"
+title: "docker 的一点小知识"
 subtitle: ""
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: 2022-07-28T16:42:48+08:00
+lastmod: 2022-07-28T16:42:48+08:00
 draft: true
 author: ""
 authorLink: ""
@@ -11,8 +10,8 @@ description: ""
 license: ""
 images: []
 
-tags: []
-categories: []
+tags: ["Docker","云原生"]
+categories: [”Tips“]
 
 featuredImage: ""
 featuredImagePreview: ""
@@ -55,6 +54,8 @@ seo:
 
 
 
-
+容器技术的代表-- Docker 的一些知识点记录。
 
 <!--more-->
+
+TODO
