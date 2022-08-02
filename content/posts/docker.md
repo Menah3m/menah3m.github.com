@@ -1,4 +1,5 @@
 ---
+weight: 1
 title: "docker 的一点小知识"
 subtitle: ""
 date: 2022-07-28T16:42:48+08:00
@@ -11,7 +12,7 @@ license: ""
 images: []
 
 tags: ["Docker","云原生"]
-categories: [”Tips“]
+categories: ["Tips"]
 
 featuredImage: ""
 featuredImagePreview: ""

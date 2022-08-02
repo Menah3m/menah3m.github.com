@@ -1,5 +1,5 @@
 ---
-weight: 2
+weight: 1
 title: "基于 Grafana 和 Elasticsearch 对日志信息进行监控告警"
 date: 2021-02-01T11:37:30+08:00
 lastmod: 2022-06-01T16:45:40+08:00
