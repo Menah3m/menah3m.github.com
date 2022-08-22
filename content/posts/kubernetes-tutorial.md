@@ -4,7 +4,7 @@ title: "Kubernetes 生产实践 Tips"
 subtitle: ""
 date: 2022-08-22T15:27:41+08:00
 lastmod: 2022-08-22T15:27:41+08:00
-draft: true
+draft: false
 author: ""
 authorLink: ""
 description: ""
