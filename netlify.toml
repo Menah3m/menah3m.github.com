@@ -1,8 +1,0 @@
-[[plugins]]
-package = "@algolia/netlify-plugin-crawler"
-  [plugins.inputs]
-  branches = ['master']
-  disabled = false
-  pathPrefix = "/"
-  customDomain = "mi2m.cn"
-  renderJavaScript = true

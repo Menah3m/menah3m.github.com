@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Gin - 标签 - 迷而不茫</title>
+        <link>https://mi2m.cn/tags/gin/</link>
+        <description>Gin - 标签 - 迷而不茫</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>menah3m@outlook.com (Menah3m)</managingEditor>
+            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Aug 2022 09:52:17 &#43;0800</lastBuildDate><atom:link href="https://mi2m.cn/tags/gin/" rel="self" type="application/rss+xml" /><item>
+    <title>Gin 框架知识汇总</title>
+    <link>https://mi2m.cn/gin/</link>
+    <pubDate>Mon, 01 Aug 2022 09:52:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/gin/</guid>
+    <description><![CDATA[<p>Gin 框架</p>]]></description>
+</item>
+</channel>
+</rss>

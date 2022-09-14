@@ -4,9 +4,41 @@
         <link>https://mi2m.cn/</link>
         <description>Mi2M - 迷而不茫</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>menah3m@outlook.com (Menah3m)</managingEditor>
-            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 Jun 2022 10:36:26 &#43;0800</lastBuildDate>
+            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Aug 2022 15:27:41 &#43;0800</lastBuildDate>
             <atom:link href="https://mi2m.cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes 生产实践 Tips</title>
+    <link>https://mi2m.cn/kubernetes-tutorial/</link>
+    <pubDate>Mon, 22 Aug 2022 15:27:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/kubernetes-tutorial/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Gin 框架知识汇总</title>
+    <link>https://mi2m.cn/gin/</link>
+    <pubDate>Mon, 01 Aug 2022 09:52:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/gin/</guid>
+    <description><![CDATA[<p>Gin 框架</p>]]></description>
+</item>
+<item>
+    <title>docker 的一点小知识</title>
+    <link>https://mi2m.cn/docker/</link>
+    <pubDate>Thu, 28 Jul 2022 16:42:48 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/docker/</guid>
+    <description><![CDATA[<p>容器技术的代表&ndash; Docker 的一些知识点记录。</p>]]></description>
+</item>
+<item>
+    <title>Go 常用库知识</title>
+    <link>https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/</link>
+    <pubDate>Fri, 22 Jul 2022 10:36:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/</guid>
+    <description><![CDATA[<p>记录 Go 常用的一些库相关知识。</p>]]></description>
+</item>
+<item>
     <title>Cerebro 的安装</title>
     <link>https://mi2m.cn/cerebro/</link>
     <pubDate>Fri, 24 Jun 2022 10:36:26 &#43;0800</pubDate>

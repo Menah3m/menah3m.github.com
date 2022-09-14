@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>云原生 - 标签 - 迷而不茫</title>
+        <link>https://mi2m.cn/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/</link>
+        <description>云原生 - 标签 - 迷而不茫</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>menah3m@outlook.com (Menah3m)</managingEditor>
+            <webMaster>menah3m@outlook.com (Menah3m)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 28 Jul 2022 16:42:48 &#43;0800</lastBuildDate><atom:link href="https://mi2m.cn/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="self" type="application/rss+xml" /><item>
+    <title>docker 的一点小知识</title>
+    <link>https://mi2m.cn/docker/</link>
+    <pubDate>Thu, 28 Jul 2022 16:42:48 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://mi2m.cn/docker/</guid>
+    <description><![CDATA[<p>容器技术的代表&ndash; Docker 的一些知识点记录。</p>]]></description>
+</item>
+</channel>
+</rss>

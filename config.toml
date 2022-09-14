@@ -241,9 +241,9 @@ enableEmoji = true
     # 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
     [params.search.algolia]
-      index = "netlify_66b030e8-2a54-40a2-ac44-7e502acc5cec_master_all"
-      appID = "U4B5K6Y5P7"
-      searchKey = "61759ea8d92db0a14515a126af83e3c9"
+      index = ""
+      appID = ""
+      searchKey = ""
 
   # Home page config
   # 主页信息设置
@@ -937,9 +937,9 @@ enableEmoji = true
         highlightTag = "em"
         absoluteURL = false
         [languages.zh-cn.params.search.algolia]
-          index = "netlify_66b030e8-2a54-40a2-ac44-7e502acc5cec_master_all"
-          appID = "U4B5K6Y5P7"
-          searchKey = "61759ea8d92db0a14515a126af83e3c9"
+          index = "mi2m.cn"
+          appID = "LZR32H2LHH"
+          searchKey = "317e5bd74068dc27f4c888316ef11ecb"
       [languages.zh-cn.params.home]
         rss = 10
         [languages.zh-cn.params.home.profile]

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Go 常用库知识 - 迷而不茫</title><meta name="Description" content="Mi2M - 迷而不茫"><meta property="og:title" content="Go 常用库知识" />
+<meta property="og:description" content="记录 Go 常用的一些库相关知识。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" /><meta property="og:image" content="https://mi2m.cn/images/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-22T10:36:26+08:00" />
+<meta property="article:modified_time" content="2022-07-22T10:36:26+08:00" /><meta property="og:site_name" content="Mi2M" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mi2m.cn/images/avatar.png"/>
+
+<meta name="twitter:title" content="Go 常用库知识"/>
+<meta name="twitter:description" content="记录 Go 常用的一些库相关知识。"/>
+<meta name="application-name" content="Mi2M">
+<meta name="apple-mobile-web-app-title" content="Mi2M"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" /><link rel="prev" href="https://mi2m.cn/cerebro/" /><link rel="next" href="https://mi2m.cn/docker/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Go 常用库知识",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mi2m.cn\/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86\/"
+        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Go","wordcount":  826 ,
+        "url": "https:\/\/mi2m.cn\/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86\/","datePublished": "2022-07-22T10:36:26+08:00","dateModified": "2022-07-22T10:36:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/mi2m.cn\/images\/avatar.png",
+                    "width":  540 ,
+                    "height":  600 
+                }},"author": {
+                "@type": "Person",
+                "name": "Menah3m"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="迷而不茫"><span class="header-title-pre"><i class='fa-solid fa-code' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-inbox' aria-hidden='true'></i> 所有文章 </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-tags' aria-hidden='true'></i> 标签 </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-layer-group' aria-hidden='true'></i> 分类 </a><a class="menu-item" href="/about/"><i class='fa-brands fa-fort-awesome-alt' aria-hidden='true'></i> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="想搜索些什么呢？" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="迷而不茫"><span class="header-title-pre"><i class='fa-solid fa-code' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="想搜索些什么呢？" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-inbox' aria-hidden='true'></i>所有文章</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-tags' aria-hidden='true'></i>标签</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-layer-group' aria-hidden='true'></i>分类</a><a class="menu-item" href="/about/" title=""><i class='fa-brands fa-fort-awesome-alt' aria-hidden='true'></i>关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go 常用库知识</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Menah3m" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Menah3m</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tips/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tips</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-22">2022-07-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 826 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" class="leancloud_visitors" data-flag-title="Go 常用库知识">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#time">time</a>
+      <ul>
+        <li><a href="#timenewticker定时器">time.NewTicker定时器</a></li>
+      </ul>
+    </li>
+    <li><a href="#casbin">Casbin</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#安装方式">安装方式</a></li>
+            <li><a href="#使用方式">使用方式</a></li>
+            <li><a href="#示例1acl模型">示例1(ACL模型)</a></li>
+            <li><a href="#示例2rbac">示例2（RBAC）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>记录 Go 常用的一些库相关知识。</p>
+<h2 id="time">time</h2>
+<h3 id="timenewticker定时器">time.NewTicker定时器</h3>
+<blockquote>
+<p>NewTicker 会返回一个新的 Ticker</p>
+</blockquote>
+<ul>
+<li>
+<p>ticker.C</p>
+<p>该 Ticker 会包含一个通道字段，并会每隔时间断 d 就向该通道发送当前时间</p>
+</li>
+<li>
+<p>ticker.Reset</p>
+<p>重置计时器，使 t 重新计时</p>
+</li>
+<li>
+<p>ticker.Stop</p>
+<p>停止计时器</p>
+</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">package main
+
+import <span class="o">(</span>
+    <span class="s2">&#34;fmt&#34;</span>
+    <span class="s2">&#34;time&#34;</span>
+<span class="o">)</span>
+
+func main<span class="o">()</span> <span class="o">{</span>
+
+    //创建一个周期性的定时器
+    ticker :<span class="o">=</span> time.NewTicker<span class="o">(</span><span class="m">3</span> * time.Second<span class="o">)</span>
+    fmt.Println<span class="o">(</span><span class="s2">&#34;当前时间为:&#34;</span>, time.Now<span class="o">())</span>
+
+    go func<span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">{</span>
+
+            //从定时器中获取数据
+            t :<span class="o">=</span> &lt;-ticker.C
+            fmt.Println<span class="o">(</span><span class="s2">&#34;当前时间为:&#34;</span>, t<span class="o">)</span>
+
+        <span class="o">}</span>
+    <span class="o">}()</span>
+
+    <span class="k">for</span> <span class="o">{</span>
+        time.Sleep<span class="o">(</span>time.Second * 1<span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="casbin">Casbin</h2>
+<p><code>casbin</code> 是一个强大、高效的访问控制库。</p>
+<h4 id="安装方式">安装方式</h4>
+<p>版本 <code>v2</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">go get github.com/casbin/casbin/v2
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用方式">使用方式</h4>
+<p><code>casbin</code> 将访问控制模型抽象在基于 PERM 模型的配置文件中。如果需要改变授权机制，只需要更改配置文件即可。</p>
+<p>配置文件分为 <code>model.conf</code> 和 <code>policy.csv</code></p>
+<p><code>policy</code> 定义具体的规则</p>
+<p><code>request</code> 是对访问请求的抽象，它的参数与 <strong>e.Enforce()</strong> 函数的参数一一对应</p>
+<p><code>matcher</code> 用于将请求和定义的规则一一匹配，生成匹配结果</p>
+<p><code>effect</code> 根据匹配结果进行结果汇总，用于决定允许还是拒绝这次请求</p>
+<h4 id="示例1acl模型">示例1(ACL模型)</h4>
+<p><strong>model.conf</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="p">[</span><span class="nx">request_definition</span><span class="p">]</span>
+<span class="nx">r</span> <span class="p">=</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span>
+
+<span class="p">[</span><span class="nx">policy_definition</span><span class="p">]</span>
+<span class="nx">p</span> <span class="p">=</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span>
+
+<span class="p">[</span><span class="nx">matchers</span><span class="p">]</span>
+<span class="nx">m</span> <span class="p">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">sub</span> <span class="o">==</span> <span class="nx">p</span><span class="p">.</span><span class="nx">sub</span> <span class="o">&amp;&amp;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">obj</span> <span class="o">==</span> <span class="nx">p</span><span class="p">.</span><span class="nx">obj</span> <span class="o">&amp;&amp;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">act</span> <span class="o">==</span> <span class="nx">p</span><span class="p">.</span><span class="nx">act</span>
+
+<span class="p">[</span><span class="nx">policy_effect</span><span class="p">]</span>
+<span class="nx">e</span> <span class="p">=</span> <span class="nf">some</span><span class="p">(</span><span class="nf">where</span> <span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">eft</span> <span class="o">==</span> <span class="nx">allow</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>policy.csv</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">p</span><span class="p">,</span> <span class="nx">dajun</span><span class="p">,</span> <span class="nx">data1</span><span class="p">,</span> <span class="nx">read</span>
+<span class="nx">p</span><span class="p">,</span> <span class="nx">lizi</span><span class="p">,</span> <span class="nx">data2</span><span class="p">,</span> <span class="nx">write</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>main.go</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;log&#34;</span>
+
+  <span class="s">&#34;github.com/casbin/casbin/v2&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">casbin</span><span class="p">.</span><span class="nx">Enforcer</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">ok</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">Enforce</span><span class="p">(</span><span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">ok</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s CAN %s %s\n&#34;</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">act</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s CANNOT %s %s\n&#34;</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">act</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">casbin</span><span class="p">.</span><span class="nf">NewEnforcer</span><span class="p">(</span><span class="s">&#34;./model.conf&#34;</span><span class="p">,</span> <span class="s">&#34;./policy.csv&#34;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;NewEnforecer failed:%v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;dajun&#34;</span><span class="p">,</span> <span class="s">&#34;data1&#34;</span><span class="p">,</span> <span class="s">&#34;read&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;lizi&#34;</span><span class="p">,</span> <span class="s">&#34;data2&#34;</span><span class="p">,</span> <span class="s">&#34;write&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;dajun&#34;</span><span class="p">,</span> <span class="s">&#34;data1&#34;</span><span class="p">,</span> <span class="s">&#34;write&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;dajun&#34;</span><span class="p">,</span> <span class="s">&#34;data2&#34;</span><span class="p">,</span> <span class="s">&#34;read&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Result</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ go run main.go
+dajun CAN <span class="nb">read</span> data1
+lizi CAN write data2
+dajun CANNOT write data1
+dajun CANNOT <span class="nb">read</span> data2
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="示例2rbac">示例2（RBAC）</h4>
+<p>在 <code>casbin</code> 中使用 <code>RBAC</code> 模型需要在模型文件中添加 <code>role_definition</code> 模块,同时修改 <code>matchers</code> 模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>role_definition<span class="o">]</span>
+<span class="nv">g</span> <span class="o">=</span> _, _
+
+<span class="o">[</span>matchers<span class="o">]</span>
+<span class="nv">m</span> <span class="o">=</span> g<span class="o">(</span>r.sub, p.sub<span class="o">)</span> <span class="o">&amp;&amp;</span> r.obj <span class="o">==</span> p.obj <span class="o">&amp;&amp;</span> r.act <span class="o">==</span> p.act
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>policy.csv</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">p, admin, data, <span class="nb">read</span>
+p, admin, data, write
+p, developer, data, <span class="nb">read</span>
+g, dajun, admin
+g, lizi, developer
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>main.go</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+  <span class="s">&#34;fmt&#34;</span>
+  <span class="s">&#34;log&#34;</span>
+
+  <span class="s">&#34;github.com/casbin/casbin/v2&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">casbin</span><span class="p">.</span><span class="nx">Enforcer</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">ok</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">Enforce</span><span class="p">(</span><span class="nx">sub</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">act</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">ok</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s CAN %s %s\n&#34;</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">act</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s CANNOT %s %s\n&#34;</span><span class="p">,</span> <span class="nx">sub</span><span class="p">,</span> <span class="nx">act</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">casbin</span><span class="p">.</span><span class="nf">NewEnforcer</span><span class="p">(</span><span class="s">&#34;./model.conf&#34;</span><span class="p">,</span> <span class="s">&#34;./policy.csv&#34;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;NewEnforecer failed:%v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;dajun&#34;</span><span class="p">,</span> <span class="s">&#34;data&#34;</span><span class="p">,</span> <span class="s">&#34;read&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;dajun&#34;</span><span class="p">,</span> <span class="s">&#34;data&#34;</span><span class="p">,</span> <span class="s">&#34;write&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;lizi&#34;</span><span class="p">,</span> <span class="s">&#34;data&#34;</span><span class="p">,</span> <span class="s">&#34;read&#34;</span><span class="p">)</span>
+  <span class="nf">check</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="s">&#34;lizi&#34;</span><span class="p">,</span> <span class="s">&#34;data&#34;</span><span class="p">,</span> <span class="s">&#34;write&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Result</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">dajun CAN <span class="nb">read</span> data
+dajun CAN write data
+lizi CAN <span class="nb">read</span> data
+lizi CANNOT write data
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-07-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" data-title="Go 常用库知识" data-hashtags="Go"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" data-hashtag="Go"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" data-title="Go 常用库知识"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" data-title="Go 常用库知识"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mi2m.cn/go%E5%B8%B8%E7%94%A8%E5%BA%93%E7%9F%A5%E8%AF%86/" data-title="Go 常用库知识"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/go/">Go</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/cerebro/" class="prev" rel="prev" title="Cerebro 的安装"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Cerebro 的安装</a>
+            <a href="/docker/" class="next" rel="next" title="docker 的一点小知识">docker 的一点小知识<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span id="jinrishici-sentence">正在加载今日诗词....</span><script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script><br><span>-</span></span></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Menah3m" target="_blank">Menah3m</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href='https://beian.miit.gov.cn/' target='_blank'>蜀ICP备20007123号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"O4aQBbWYy1OYzXr0zDdEaDcL-gzGzoHsz","appKey":"lBAlAapSEpr6so3waMf6pOul","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://learncloud.mi2m.cn","visitor":true}},"data":{"id-1":"Mi2M","id-2":"Mi2M"},"search":{"algoliaAppID":"LZR32H2LHH","algoliaIndex":"mi2m.cn","algoliaSearchKey":"317e5bd74068dc27f4c888316ef11ecb","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":1000,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

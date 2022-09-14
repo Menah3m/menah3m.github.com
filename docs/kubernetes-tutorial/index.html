@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Kubernetes 生产实践 Tips - 迷而不茫</title><meta name="Description" content="Mi2M - 迷而不茫"><meta property="og:title" content="Kubernetes 生产实践 Tips" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mi2m.cn/kubernetes-tutorial/" /><meta property="og:image" content="https://mi2m.cn/images/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-22T15:27:41+08:00" />
+<meta property="article:modified_time" content="2022-09-07T15:27:41+08:00" /><meta property="og:site_name" content="Mi2M" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mi2m.cn/images/avatar.png"/>
+
+<meta name="twitter:title" content="Kubernetes 生产实践 Tips"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="Mi2M">
+<meta name="apple-mobile-web-app-title" content="Mi2M"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mi2m.cn/kubernetes-tutorial/" /><link rel="prev" href="https://mi2m.cn/gin/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Kubernetes 生产实践 Tips",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mi2m.cn\/kubernetes-tutorial\/"
+        },"image": ["https:\/\/mi2m.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kubernetes","wordcount":  1028 ,
+        "url": "https:\/\/mi2m.cn\/kubernetes-tutorial\/","datePublished": "2022-08-22T15:27:41+08:00","dateModified": "2022-09-07T15:27:41+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/mi2m.cn\/images\/avatar.png",
+                    "width":  540 ,
+                    "height":  600 
+                }},"author": {
+                "@type": "Person",
+                "name": "Menah3m"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="迷而不茫"><span class="header-title-pre"><i class='fa-solid fa-code' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-inbox' aria-hidden='true'></i> 所有文章 </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-tags' aria-hidden='true'></i> 标签 </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-layer-group' aria-hidden='true'></i> 分类 </a><a class="menu-item" href="/about/"><i class='fa-brands fa-fort-awesome-alt' aria-hidden='true'></i> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="想搜索些什么呢？" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="迷而不茫"><span class="header-title-pre"><i class='fa-solid fa-code' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="想搜索些什么呢？" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-inbox' aria-hidden='true'></i>所有文章</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-tags' aria-hidden='true'></i>标签</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-layer-group' aria-hidden='true'></i>分类</a><a class="menu-item" href="/about/" title=""><i class='fa-brands fa-fort-awesome-alt' aria-hidden='true'></i>关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kubernetes 生产实践 Tips</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Menah3m" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Menah3m</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tips/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tips</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-22">2022-08-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1028 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/kubernetes-tutorial/" class="leancloud_visitors" data-flag-title="Kubernetes 生产实践 Tips">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#kubernetes-中优雅停止-pod">Kubernetes 中优雅停止 Pod</a>
+      <ul>
+        <li><a href="#优雅停止">优雅停止</a></li>
+        <li><a href="#k8s-中停止-pod-的逻辑">K8s 中停止 Pod 的逻辑</a></li>
+        <li><a href="#使用-prestop-字段">使用 preStop 字段</a></li>
+      </ul>
+    </li>
+    <li><a href="#kubernetes-健康检查">Kubernetes 健康检查</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#注意">注意</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#合理设置-request-和-limit">合理设置 Request 和 Limit</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#所有容器都应该设置-request">所有容器都应该设置 request</a></li>
+          </ul>
+        </li>
+        <li><a href="#重要的线上应用应该如何设置">重要的线上应用应该如何设置</a></li>
+      </ul>
+    </li>
+    <li><a href="#k8s-中权限控制的自动化实现">K8s 中权限控制的自动化实现</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="kubernetes-中优雅停止-pod">Kubernetes 中优雅停止 Pod</h2>
+<h3 id="优雅停止">优雅停止</h3>
+<p>就像我们关机时一样，系统会完成一些清理操作之后再关闭，称之为优雅停止。</p>
+<p>如果我们直接拔掉电源（硬中止），那么系统中的一些任务和操作将会来不及进行处理，有时会导致未知的问题。</p>
+<h3 id="k8s-中停止-pod-的逻辑">K8s 中停止 Pod 的逻辑</h3>
+<ol>
+<li>
+<p>当 Pod 被删除，会变为 Terminating 状态，Pod metadata 中 deletionTimestamp 字段会被标记删除时间</p>
+</li>
+<li>
+<p>Kube-proxy 在周期内更新转发规则，将 Pod 从 service 的 endpoint 列表中删除，新的流量将不会转发到该 Pod</p>
+</li>
+<li>
+<p>kubelet 开始销毁 pod</p>
+<ul>
+<li>如果 pod spec 中设置了 preStop hook，将会执行</li>
+<li>发送 <code>SIGTERM</code> 信号给容器内主进程，通知容器进行优雅中止</li>
+<li>等待 container 中的主进程完全停止，如果在 terminationGracePeriodSeconds 内（默认30s）还未停止，就发送 <code>SIGKILL</code>信号强制中止</li>
+<li>所有容器进程终止，清理 Pod 资源</li>
+<li>通知 ApiServer pod 销毁完成。</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用-prestop-字段">使用 preStop 字段</h3>
+<p>可以使用 preStop 字段来执行自定义的优雅停止逻辑</p>
+<p>参考 <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1" target="_blank" rel="noopener noreffer">Kubernetes API 文档</a></p>
+<h2 id="kubernetes-健康检查">Kubernetes 健康检查</h2>
+<p>K8s 目前支持三种健康检查：</p>
+<ul>
+<li>
+<p><strong>ReadinessProbe</strong> 就绪检查</p>
+<p>只有在就绪检查成功的前提下，才会接收流量，否则不会接收流量</p>
+</li>
+<li>
+<p><strong>LivenessProbe</strong> 存活检查</p>
+<p>如果存活检查不成功，会自动重启容器</p>
+</li>
+<li>
+<p><strong>startupProbe</strong> 启动检查</p>
+<p>让存活检查和就绪检查的开始探测时间延后，也就是说只有在启动检查成功的前提下，才会执行就绪检查或存活检查</p>
+</li>
+</ul>
+<h4 id="注意">注意</h4>
+<ol>
+<li>
+<p>首选 HTTP 探测</p>
+</li>
+<li>
+<p>备选脚本探测</p>
+</li>
+<li>
+<p>尽量避免 TCP 探测</p>
+<p>因为只要端口能够响应 TCP SYN 包，TCP 检测结果都为 true ，当程序死锁时，不会影响端口，所以可能检测结果为 true，但实际上业务已经不健康了。</p>
+</li>
+<li>
+<p>所有提供服务的 container 都要加上 <code>ReadinessProbe</code></p>
+</li>
+<li>
+<p>谨慎使用 LivenessProbe ，如果非用不可，则应该尽量放宽探测条件</p>
+</li>
+</ol>
+<h2 id="合理设置-request-和-limit">合理设置 Request 和 Limit</h2>
+<h4 id="所有容器都应该设置-request">所有容器都应该设置 request</h4>
+<p>request 的值并不是指给容器实际分配的资源大小，而是用于给调度器用来判断每个节点上可分配资源还有多少。</p>
+<p>通过节点总资源减去各容器定义的 request 之和，可以计算出节点上还有多少资源可供分配，从而做出合理的调度决策。</p>
+<p>如果当前节点可供分配资源小于被调度的容器的 request ，则不会调度到该节点。如果无法合理调度，可能会出现节点资源利用不均的结果。</p>
+<h3 id="重要的线上应用应该如何设置">重要的线上应用应该如何设置</h3>
+<p>节点资源不足时，会触发自动驱逐，会根据优先级删除 Pod 以释放资源让节点自愈。</p>
+<p>没有设置 request，limit 的 Pod 优先级最低，其次是 request 不等于 limit 的 Pod ，</p>
+<p>request 等于 limit 的 Pod 优先级最高，不容易被驱逐。</p>
+<p>所以建议将重要的线上应用的 request 和 limit 设置为一致的值。</p>
+<h2 id="k8s-中权限控制的自动化实现">K8s 中权限控制的自动化实现</h2>
+<p>在 cluster 创建时，</p>
+<ol>
+<li>创建自定义的 role，比如 namespace-creator，namespace-creator 定义用户可操作的对象和对应的读写操作。</li>
+<li>创建自定义的 namespace admission controller
+<ul>
+<li>当 namespace 创建请求被处理时，获取当前用户信心并 annotate 到 namespace</li>
+</ul>
+</li>
+<li>创建 RBAC controller
+<ul>
+<li>Watch namespace 的创建事件</li>
+<li>获取当前 namespace 的创建者信息</li>
+<li>在当前 namespace 创建 rolebinding 对象，并将 namespace-creator 角色和用户绑定</li>
+</ul>
+</li>
+</ol></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-09-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/kubernetes-tutorial/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://mi2m.cn/kubernetes-tutorial/" data-title="Kubernetes 生产实践 Tips" data-hashtags="Kubernetes"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://mi2m.cn/kubernetes-tutorial/" data-hashtag="Kubernetes"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://mi2m.cn/kubernetes-tutorial/" data-title="Kubernetes 生产实践 Tips"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://mi2m.cn/kubernetes-tutorial/" data-title="Kubernetes 生产实践 Tips"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://mi2m.cn/kubernetes-tutorial/" data-title="Kubernetes 生产实践 Tips"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kubernetes/">Kubernetes</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/gin/" class="prev" rel="prev" title="Gin 框架知识汇总"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Gin 框架知识汇总</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span id="jinrishici-sentence">正在加载今日诗词....</span><script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script><br><span>-</span></span></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Menah3m" target="_blank">Menah3m</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href='https://beian.miit.gov.cn/' target='_blank'>蜀ICP备20007123号-1</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"O4aQBbWYy1OYzXr0zDdEaDcL-gzGzoHsz","appKey":"lBAlAapSEpr6so3waMf6pOul","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://learncloud.mi2m.cn","visitor":true}},"data":{"id-1":"Mi2M","id-2":"Mi2M"},"lightgallery":true,"search":{"algoliaAppID":"LZR32H2LHH","algoliaIndex":"mi2m.cn","algoliaSearchKey":"317e5bd74068dc27f4c888316ef11ecb","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":1000,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
