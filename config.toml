@@ -936,10 +936,10 @@ enableEmoji = true
         snippetLength = 50
         highlightTag = "em"
         absoluteURL = false
-        [languages.zh-cn.params.search.algolia]
-          index = "netlify_66b030e8-2a54-40a2-ac44-7e502acc5cec_master_all"
-          appID = "U4B5K6Y5P7"
-          searchKey = "61759ea8d92db0a14515a126af83e3c9"
+#        [languages.zh-cn.params.search.algolia]
+#          index = "netlify_66b030e8-2a54-40a2-ac44-7e502acc5cec_master_all"
+#          appID = "U4B5K6Y5P7"
+#          searchKey = "61759ea8d92db0a14515a126af83e3c9"
       [languages.zh-cn.params.home]
         rss = 10
         [languages.zh-cn.params.home.profile]
