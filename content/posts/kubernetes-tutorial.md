@@ -3,7 +3,7 @@ weight: 1
 title: "Kubernetes 生产实践 Tips"
 subtitle: ""
 date: 2022-08-22T15:27:41+08:00
-lastmod: 2022-08-22T15:27:41+08:00
+lastmod: 2022-09-07T15:27:41+08:00
 draft: false
 author: ""
 authorLink: ""
@@ -140,3 +140,19 @@ request 的值并不是指给容器实际分配的资源大小，而是用于给
 request 等于 limit 的 Pod 优先级最高，不容易被驱逐。
 
 所以建议将重要的线上应用的 request 和 limit 设置为一致的值。
+
+
+
+
+
+## K8s 中权限控制的自动化实现
+
+在 cluster 创建时，
+
+1. 创建自定义的 role，比如 namespace-creator，namespace-creator 定义用户可操作的对象和对应的读写操作。
+2. 创建自定义的 namespace admission controller
+   - 当 namespace 创建请求被处理时，获取当前用户信心并 annotate 到 namespace
+3. 创建 RBAC controller
+   - Watch namespace 的创建事件
+   - 获取当前 namespace 的创建者信息
+   - 在当前 namespace 创建 rolebinding 对象，并将 namespace-creator 角色和用户绑定
