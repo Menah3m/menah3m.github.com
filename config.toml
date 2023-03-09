@@ -50,7 +50,7 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "Menah3m"
+  name = "Menah3m "
   email = "menah3m@outlook.com"
   link = "https://github.com/Menah3m"
 
@@ -959,8 +959,6 @@ enableEmoji = true
         #Weibo = "xxxx"
         #Steam = "xxxx"
         #Zhihu = "xxxx"
-        #Douban = "xxxx"
-        #Devto = "xxxx"
         #Bilibili = "xxxx"
         Email = "menah3m@outlook.com"
         RSS = true
