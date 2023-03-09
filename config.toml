@@ -952,7 +952,6 @@ enableEmoji = true
           social = true
           disclaimer = ""
       [languages.zh-cn.params.social]
-        
         GitHub = "Menah3m"
         #Instagram = "xxxx"
         #Twitter = "xxxx"
