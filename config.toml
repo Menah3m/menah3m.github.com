@@ -286,7 +286,7 @@ enableEmoji = true
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = ""
+    GitHub = "Menah3m"
     Linkedin = ""
     Twitter = ""
     Instagram = ""
@@ -860,7 +860,7 @@ enableEmoji = true
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        GitHub = "xxxx"
+        GitHub = "Menah3m"
         Twitter = "xxxx"
         Instagram = "xxxx"
         Facebook = "xxxx"
@@ -953,7 +953,7 @@ enableEmoji = true
           disclaimer = ""
       [languages.zh-cn.params.social]
         
-        GitHub = "https://github.com/Menah3m"
+        GitHub = "Menah3m"
         #Instagram = "xxxx"
         #Twitter = "xxxx"
         #Reddit = "xxxx"
