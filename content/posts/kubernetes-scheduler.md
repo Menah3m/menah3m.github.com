@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: "Kubernetes 调度原理"
+title: "Kubernetes 调度"
 subtitle: ""
 date: 2022-09-08T15:17:34+08:00
 lastmod: 2022-09-08T15:17:34+08:00
-draft: true
+draft: false
 author: ""
 authorLink: ""
 description: ""
