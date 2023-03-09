@@ -11,8 +11,8 @@ description: ""
 license: ""
 images: []
 
-tags: []
-categories: []
+tags: ["Kubernetes"]
+categories: ["云原生"]
 
 featuredImage: ""
 featuredImagePreview: ""

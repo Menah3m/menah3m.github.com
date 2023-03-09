@@ -12,7 +12,7 @@ license: ""
 images: []
 
 tags: ["Kubernetes"]
-categories: ["Tips"]
+categories: ["Tips","云原生"]
 
 featuredImage: ""
 featuredImagePreview: ""
