@@ -21,7 +21,7 @@ math:
 <br>
 
 {{< typeit tag=h4 >}}
-若你喜欢怪人，其实我很美...
+ Stay hungry. Stay foolish.
 {{< /typeit >}}
 
 <br>
