@@ -3,7 +3,7 @@ weight: 1
 title: "Kubernetes 生产实践 Tips"
 subtitle: ""
 date: 2022-08-22T15:27:41+08:00
-lastmod: 2022-09-07T15:27:41+08:00
+lastmod: 2023-03-15T11:31:41+08:00
 draft: false
 author: ""
 authorLink: ""
@@ -156,3 +156,21 @@ request 等于 limit 的 Pod 优先级最高，不容易被驱逐。
    - Watch namespace 的创建事件
    - 获取当前 namespace 的创建者信息
    - 在当前 namespace 创建 rolebinding 对象，并将 namespace-creator 角色和用户绑定
+
+
+## 如何保证工作负载的高可用
+
+1. 需要保证该部署副本数量大于1
+2. 需要使用 Pod 反亲和性来保证同一个部署的不同 Pod 被调度到不同 Node
+  ```yaml
+  	  affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: a
+                  operator: In
+                  values:
+                    - b
+            topologyKey: kubernetes.io/hostname
+  ```
