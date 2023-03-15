@@ -162,15 +162,16 @@ request 等于 limit 的 Pod 优先级最高，不容易被驱逐。
 
 1. 需要保证该部署副本数量大于1
 2. 需要使用 Pod 反亲和性来保证同一个部署的不同 Pod 被调度到不同 Node
+  > 例：不能将当前Pod部署到已经拥有标签为 app=nginx 的 pod 所在 Node
   ```yaml
-  	  affinity:
-        podAffinity:
+  	affinity:
+        podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-                - key: a
+                - key: app
                   operator: In
                   values:
-                    - b
+                    - nginx
             topologyKey: kubernetes.io/hostname
   ```
