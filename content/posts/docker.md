@@ -59,4 +59,24 @@ seo:
 
 <!--more-->
 
-TODO
+## 如何在不重启正在运行的 docker 容器的情况下重启 docker 服务
+1. 修改 /etc/docker/daemon.json
+```shell
+# 配置 live-restore 为 true 
+ {
+  "live-restore": true
+ }
+```
+2. 重载 docker 配置
+```shell
+ kill -SIGHUP $(pidof dockerd)
+```
+3. 检查配置是否生效
+```shell
+ docker info |grep -i live
+ # Live Restore Enabled: true
+```
+4. 重启 docker 服务
+```shell
+ systemctl restart docker
+```
