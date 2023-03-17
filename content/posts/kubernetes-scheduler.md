@@ -3,7 +3,7 @@ weight: 1
 title: "Kubernetes 调度"
 subtitle: ""
 date: 2022-09-08T15:17:34+08:00
-lastmod: 2022-09-08T15:17:34+08:00
+lastmod: 2023-03-17T14:17:34+08:00
 draft: false
 author: ""
 authorLink: ""
@@ -74,7 +74,6 @@ kube-scheduler 负责分配调度 pod 到集群内的节点上。它监听 kube-
 - deadlines
 
 
-
 ### 调度器
 
 kube-scheduler 调度分为两个阶段：
@@ -91,8 +90,8 @@ kube-scheduler 调度分为两个阶段：
 
 #### predicate 策略
 
-1. PodFitsHostPorts 检查是否有host ports 冲突
-2. PodFitsPorts
+1. PodFitsHostPorts 检查是否有host 冲突
+2. PodFitsPorts  检查是否有 port 冲突
 3. PodFitsResources 检查 Node 资源是否充足，包括孕育的 pod 数量、CPU、Memory 个数及其他
 4. HostName 检查 pod.Spec.NodeName 是否和候选节点一致
 5. MatchNodeSelector 检查候选节点的 pod.Spec.NodeSelector 是否匹配
@@ -106,7 +105,7 @@ kube-scheduler 调度分为两个阶段：
 2. InterPodAffinityPriority 优先将 pod 调度到相同的拓扑上，如同一个节点、rack、Zone 等
 3. LeastRequestedPriority 优先调度到请求资源少的节点上
 4. BalancedResourceAllocation 优先平衡各节点的资源使用
-5. NodePreferAvoidPodsPriority alpha.kubernetes.io/preferAvoidPods 字段判断，权重为10000，避免其他优先级策略的影响
+5. NodePreferAvoidPodsPriority alpha.kubernetes.io/preferAvoidPods 字段判断，权重最大10000，避免其他优先级策略的影响
 
 
 
