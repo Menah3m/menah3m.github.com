@@ -88,7 +88,7 @@ kube-scheduler 调度分为两个阶段：
 
 
 
-#### predicate 策略
+### predicate 策略
 
 1. PodFitsHostPorts 检查是否有host 冲突
 2. PodFitsPorts  检查是否有 port 冲突
