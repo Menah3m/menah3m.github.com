@@ -59,6 +59,15 @@ seo:
 
 <!--more-->
 
+## 容器
+
+#### 容器与虚拟机的区别
+
+![image.png](https://menah3m-image-bucket.oss-cn-chengdu.aliyuncs.com/img/20230324151645.png)
+
+
+
+
 ## 如何在不重启正在运行的 docker 容器的情况下重启 docker 服务
 1. 修改 /etc/docker/daemon.json
 ```shell
